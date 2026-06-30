@@ -245,33 +245,6 @@ node("abismal:hierbaabismal", {
     groups = {snappy = 3, flammable = 2},
 })
 
----aparicion-------------------------------mineral abismal
-
-minetest.register_abm({
-    nodenames = {"default:stone", "default:adoquin"},
-    neighbors = {"abismal:abismalore"},
-    interval = 43200,
-    chance = 2,
-    action = function(pos, node, active_object_count,
-            active_object_count_wider)
-        local pos = {x = pos.x + 6, y = pos.y + 0, z = pos.z + 6}
-        local pos = {x = pos.x - 6, y = pos.y - 0, z = pos.z - 6}
-        minetest.set_node(pos, {name = "abismal:hierbaabismal"})
-    end
-}) 
-
-minetest.register_abm({
-    nodenames = {"default:stone", "default:cobblestone", "default:desert_stone"},
-    neighbors = {"abismal:hierbaabismal"},
-    interval = 86400,
-    chance = 2,
-    action = function(pos, node, active_object_count,
-            active_object_count_wider)
-        local pos = {x = pos.x + 0, y = pos.y - 0, z = pos.z + 0}
-        minetest.set_node(pos, {name = "abismal:pastoabismal"})
-    end
-}) 
-
 node("abismal:pastoabismal", {
     description = S("abysmal dirt grass"),
     tiles = {
